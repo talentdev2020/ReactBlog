@@ -104,7 +104,6 @@ const posts = handleActions(
       posts: state.allPosts,
     }),
     [REPLY_POST]: (state, { payload: reply }) => {
-      console.log(reply);
       const { text } = reply;
       const { username, useremail } = reply.user;
 
@@ -131,7 +130,6 @@ const posts = handleActions(
     [DELETE_POST]: (state, { payload: id }) => {
       const allPosts = state.allPosts.filter((item) => item._id !== id);
       const posts = state.posts.filter((item) => item._id !== id);
-      console.log(id);
       return {
         ...state,
         allPosts,
@@ -139,7 +137,6 @@ const posts = handleActions(
       };
     },
     [SEARCH_POSTS]: (state, { payload: key }) => {
-      console.log(key);
       const posts = state.allPosts.filter(
         (item) =>
           item.title.includes(key) ||
@@ -147,7 +144,6 @@ const posts = handleActions(
           item.user.username.includes(key) ||
           item.user.useremail.includes(key),
       );
-      console.log('SS', posts);
       return {
         ...state,
         posts,

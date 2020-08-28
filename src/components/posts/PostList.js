@@ -142,6 +142,9 @@ const PostList = ({
           <StyledInput
             type="text"
             id="search"
+            onKeyPress={(e) => {
+              if (e.key === 'Enter') Search();
+            }}
             onChange={(e) => changeSearch(e)}
           />
           <Button cyan onClick={(e) => Search()}>

@@ -18,7 +18,6 @@ const EditorContainer = () => {
   };
 
   useEffect(() => {
-    // console.log('init');
     return () => {
       dispatch(initialize());
     };

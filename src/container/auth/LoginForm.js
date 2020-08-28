@@ -36,12 +36,10 @@ const LoginForm = ({ history }) => {
   useEffect(() => {
     if (authError) {
       console.log('Error occur');
-      console.log(authError);
       setError('Login failure');
       return;
     }
     if (auth) {
-      console.log('login success');
       dispatch(check(auth));
     }
   }, [auth, authError, dispatch]);
