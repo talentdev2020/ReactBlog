@@ -37,53 +37,71 @@ const initialState = {
   posts: [
     {
       _id: 1,
-      title: 'Sample title1',
-      body: '<p>Sample1</p> <b>body1</b>',
-      user: { username: 'test user', useremail: 'text email' },
+      title: 'But it may keep some time.',
+      body:
+        ' <b>But pleasure is easy, however, that the Blessed Virgin, or it is nothing at all.</b>',
+      user: { username: 'test user', useremail: 'test@gmail.com' },
       publishedDate: '2020-04-29',
-      replies: [{ username: 'aa', useremail: 'aaa', text: 'dsdsd' }],
+      replies: [
+        { username: 'Anton', useremail: 'anton@gmail.com', text: 'thanks' },
+      ],
     },
     {
       _id: 2,
-      title: 'Sample title2',
-      body: '<p>Sample2</p> <b>body2</b>',
-      user: { username: 'test user', useremail: 'text email' },
+      title: 'Provident Ancestours, as they will unfold.',
+      body:
+        ' <b><div>Annoyance or pleasure is pleasure. Due to the advantage of it because it has From and distinctness of who is who.</div><div> And let them be here, are not the whole of Dolor, all the. </div>Because it is the pleasure of him, accusing him of life when the consequences of this.</b>',
+      user: { username: 'test user', useremail: 'test@gmail.com' },
       publishedDate: '2020-04-29',
-      replies: [{ username: 'aa', useremail: 'aaa', text: 'dsdsd' }],
+      replies: [
+        { username: 'Richard', useremail: 'ricahrd@gmail.com', text: 'great' },
+      ],
     },
     {
       _id: 3,
-      title: 'Sample title3',
-      body: '<p>Sample3</p> <b>body3</b>',
-      user: { username: 'test user', useremail: 'text email' },
+      title: 'This is because they refuse to choose when they have fallen.',
+      body:
+        ' <b>Dignissimos blind are suffering the consequences of all that flattering pleasure for pleasure</b>',
+      user: { username: 'test user', useremail: 'test@gmail.com' },
       publishedDate: '2020-04-29',
-      replies: [{ username: 'aa', useremail: 'aaa', text: 'dsdsd' }],
+      replies: [
+        { username: 'John', useremail: 'john@gmail.com', text: 'perfect' },
+      ],
     },
   ],
   allPosts: [
     {
       _id: 1,
-      title: 'Sample title1',
-      body: '<p>Sample1</p> <b>body1</b>',
-      user: { username: 'test user', useremail: 'text email' },
+      title: 'But it may keep some time.',
+      body:
+        ' <b>But pleasure is easy, however, that the Blessed Virgin, or it is nothing at all.</b>',
+      user: { username: 'test user', useremail: 'test@gmail.com' },
       publishedDate: '2020-04-29',
-      replies: [{ username: 'aa', useremail: 'aaa', text: 'dsdsd' }],
+      replies: [
+        { username: 'Anton', useremail: 'anton@gmail.com', text: 'thanks' },
+      ],
     },
     {
       _id: 2,
-      title: 'Sample title2',
-      body: '<p>Sample2</p> <b>body2</b>',
-      user: { username: 'test user', useremail: 'text email' },
+      title: 'Provident Ancestours, as they will unfold.',
+      body:
+        ' <b><div>Annoyance or pleasure is pleasure. Due to the advantage of it because it has From and distinctness of who is who.</div><div> And let them be here, are not the whole of Dolor, all the. </div>Because it is the pleasure of him, accusing him of life when the consequences of this.</b>',
+      user: { username: 'test user', useremail: 'test@gmail.com' },
       publishedDate: '2020-04-29',
-      replies: [{ username: 'aa', useremail: 'aaa', text: 'dsdsd' }],
+      replies: [
+        { username: 'Richard', useremail: 'ricahrd@gmail.com', text: 'great' },
+      ],
     },
     {
       _id: 3,
-      title: 'Sample title3',
-      body: '<p>Sample3</p> <b>body3</b>',
-      user: { username: 'test user', useremail: 'text email' },
+      title: 'This is because they refuse to choose when they have fallen.',
+      body:
+        ' <b>Dignissimos blind are suffering the consequences of all that flattering pleasure for pleasure</b>',
+      user: { username: 'test user', useremail: 'test@gmail.com' },
       publishedDate: '2020-04-29',
-      replies: [{ username: 'aa', useremail: 'aaa', text: 'dsdsd' }],
+      replies: [
+        { username: 'John', useremail: 'john@gmail.com', text: 'perfect' },
+      ],
     },
   ],
   error: null,
@@ -109,12 +127,7 @@ const posts = handleActions(
 
       let allPosts = state.allPosts;
       let posts = state.posts;
-      allPosts = allPosts.map((post) => {
-        if (post._id === reply.postId) {
-          post.replies.push({ text, username, useremail });
-        }
-        return post;
-      });
+
       posts = posts.map((post) => {
         if (post._id === reply.postId) {
           post.replies.push({ text, username, useremail });
@@ -137,12 +150,13 @@ const posts = handleActions(
       };
     },
     [SEARCH_POSTS]: (state, { payload: key }) => {
+      const search_key = key.toUpperCase();
       const posts = state.allPosts.filter(
         (item) =>
-          item.title.includes(key) ||
-          item.body.includes(key) ||
-          item.user.username.includes(key) ||
-          item.user.useremail.includes(key),
+          item.title.toUpperCase().includes(search_key) ||
+          item.body.toUpperCase().includes(search_key) ||
+          item.user.username.toUpperCase().includes(search_key) ||
+          item.user.useremail.toUpperCase().includes(search_key),
       );
       return {
         ...state,
@@ -156,7 +170,7 @@ const posts = handleActions(
       len++;
       post._id = len;
       post.publishedDate = new Date().toDateString();
-      allPosts.push(post);
+      allPosts.unshift(post);
 
       return {
         ...state,

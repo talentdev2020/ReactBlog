@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import palette from '../../lib/styles/palette';
 
 export const SubInfoBlock = styled.div`
+  margin-left: 15px;
+  font-size: 0.8rem;
   ${(props) =>
     props.hasMarginTop &&
     css`
-      margin-top: 1rem;
+      margin-top: 0.5rem;
     `}
   color: ${palette.gray[6]};
 
@@ -29,7 +31,7 @@ const SubInfo = ({ user, publishedDate, hasMarginTop }) => {
           </Link>
         </b>
       </span>
-      <span>{new Date(publishedDate).toLocaleDateString()}</span>
+      {/* <span>{new Date(publishedDate).toLocaleDateString()}</span> */}
     </SubInfoBlock>
   );
 };

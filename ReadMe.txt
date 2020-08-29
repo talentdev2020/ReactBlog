@@ -11,11 +11,14 @@
   Home page
      Display all posts.
      User can search the posts through all post fields (author name, email, post title and post text) using keyword.
-     If the user is logged in, he can reply to the post.
-     If the user doesn't log in , he can't reply and delete the post.  He can only see the Posts.
+     If the user doesn't log in , he can't reply and delete the post.  
+     If the user is logged in, he can see the 'Commment' button.
+        If the user click the comment button, all comments will be displayed and user can reply another comment.
      If the user isn't the owner of the post, he can't delete the post.
+   
   Create page
     User can create the post using Quill editor
+    If the user isn't logged in, he can't see the 'Create' button
 
 -How to run this project
  npm install  (This command will install the all required packages)

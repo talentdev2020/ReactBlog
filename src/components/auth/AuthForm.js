@@ -52,7 +52,6 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
   const text = textMap[type];
   return (
     <AuthFormBlock>
-      <h3>text</h3>
       <form onSubmit={onSubmit}>
         <StyledInput
           autoComplete="username"

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PostList from '../../components/posts/PostList';
-import { searchPosts, deletePost, replyPost } from '../../modules/posts';
+import { deletePost, replyPost } from '../../modules/posts';
 
 const PostListContainer = () => {
   const dispatch = useDispatch();
@@ -12,9 +12,7 @@ const PostListContainer = () => {
       user: user.user,
     }),
   );
-  const Search = (key) => {
-    dispatch(searchPosts(key));
-  };
+
   const Delete = (id) => {
     dispatch(deletePost(id));
   };
@@ -27,7 +25,6 @@ const PostListContainer = () => {
       error={error}
       posts={posts}
       user={user}
-      searchPosts={Search}
       deletePost={Delete}
       replyPost={Reply}
     />
