@@ -7,6 +7,7 @@ import { check } from '../../modules/user';
 
 const LoginForm = ({ history }) => {
   const dispatch = useDispatch();
+
   const { form, auth, authError, user } = useSelector(({ auth, user }) => ({
     form: auth.login,
     auth: auth.auth,
@@ -35,7 +36,6 @@ const LoginForm = ({ history }) => {
 
   useEffect(() => {
     if (authError) {
-      console.log('Error occur');
       setError('Login failure');
       return;
     }
@@ -46,7 +46,7 @@ const LoginForm = ({ history }) => {
 
   useEffect(() => {
     if (user) {
-      history.push('/');
+      history.goBack();
       try {
         localStorage.setItem('user', JSON.stringify(user));
       } catch (e) {

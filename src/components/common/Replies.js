@@ -19,10 +19,9 @@ const TagsBlock = styled.div`
 const ReplySection = styled.div`
   display: flex;
   justify-content: space-around;
-  margin: 10 0px;
+  margin: 10px 0px;
 `;
 const ReplyDiv = styled.div`
-  margin-left: 20px;
   margin-top: 10px;
   background-color: whitesmoke;
   border-radius: 10px;
@@ -31,9 +30,10 @@ const TextArea = styled.div`
   font-size: 1rem;
   border: none;
   border-bottom: 1px solid ${palette.gray[5]};
-  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
   outline: none;
-  width: 90%;
+  width: 100%;
+  margin-right: 15px;
   &:focus {
     color: $oc-teal-7;
     border-bottom: 1px solid ${palette.gray[7]};
@@ -52,6 +52,7 @@ const Replies = ({ replies, isReply, onReply, postId, user }) => {
     <TagsBlock>
       {isReply && (
         <div>
+          {/* display all comments */}
           {replies.map((reply, index) => (
             <ReplyDiv key={`${postId}.${index}_${reply.username}`}>
               <PostContent dangerouslySetInnerHTML={{ __html: reply.text }} />
@@ -62,6 +63,8 @@ const Replies = ({ replies, isReply, onReply, postId, user }) => {
               </SubInfoBlock>
             </ReplyDiv>
           ))}
+
+          {/* reply to the post */}
           {user && (
             <ReplySection>
               <TextArea contentEditable id="replyText"></TextArea>

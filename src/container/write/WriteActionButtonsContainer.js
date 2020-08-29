@@ -4,6 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { writePost } from '../../modules/write';
 
+/**
+ * section of the "publish" and "cancel" buttons in creating page
+ * @param {*} param0
+ */
 const WriteActionButtonsContainer = ({ history }) => {
   const dispatch = useDispatch();
   const { title, body, user, replies, post, postError } = useSelector(
@@ -17,7 +21,7 @@ const WriteActionButtonsContainer = ({ history }) => {
     }),
   );
 
-  //
+  // Create the post
   const onPublish = () => {
     dispatch(
       writePost({
@@ -29,20 +33,20 @@ const WriteActionButtonsContainer = ({ history }) => {
     );
   };
 
-  //
+  // Cancel the creating post
   const onCancel = () => {
     history.goBack();
   };
 
   useEffect(() => {
-    console.log('post', post);
+    if (!user) history.push(`/login`);
     if (post) {
       history.push(`/`);
     }
     if (postError) {
       console.log(postError);
     }
-  }, [history, post, postError]);
+  }, [history, post, postError, user]);
   return <WriteActionButtons onPublish={onPublish} onCancel={onCancel} />;
 };
 

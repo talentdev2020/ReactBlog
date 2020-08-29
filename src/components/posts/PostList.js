@@ -5,7 +5,7 @@ import Responsive from '../common/Responsive';
 import palette from '../../lib/styles/palette';
 import SubInfo from '../common/SubInfo';
 import Replies from '../common/Replies';
-import { Link } from 'react-router-dom';
+
 const PostListBlock = styled(Responsive)`
   margin-top: 3rem;
 `;
@@ -24,9 +24,6 @@ const PostItemBlock = styled.div`
     font-size: 2rem;
     margin-bottom: 0;
     margin-top: 0;
-    &:hover {
-      color: ${palette.gray[6]};
-    }
   }
   p {
     margin-top: 2rem;
@@ -47,37 +44,33 @@ const Buttonsection = styled.div`
   margin: auto;
   color: ${palette.gray[8]};
   button {
-    margin-right: 20px;
+    margin-left: 20px;
   }
 `;
 
 /**
- *
+ * component for each post
  * @param {object} user object which includes username and useremail
- * @param {object} post object which includes post information such as user, date, title, body
+ * @param {object} post object which includes post information such as user, title, body
  * @param {function} deletePost function which delete the specified post
  * @param {function} replyPost function which reply the post
  *
  */
 const PostItem = ({ user, post, deletePost, replyPost }) => {
   const [isReply, setIsReply] = useState(false);
-  const { publishedDate, replies, title, body } = post;
+  const { replies, title, body } = post;
   const postUser = post.user;
   const onReply = (text, postId) => {
-    // setIsReply(false);
     replyPost(text, postId);
   };
   return (
     <PostItemBlock>
-      <strong>
-        <Link to="">
-          <h2>{title}</h2>
-        </Link>
-      </strong>
-      <SubInfo user={postUser} publishedDate={new Date(publishedDate)} />
-
+      {/* the title of the post */}
+      <h2>{title}</h2>
+      {/* username and useremail of the post */}
+      <SubInfo user={postUser} />
+      {/* content of the post */}
       <PostContent dangerouslySetInnerHTML={{ __html: body }} />
-
       <Buttonsection>
         {user && post.user.username === user.username && (
           <Button cyan onClick={(e) => deletePost(post._id)}>
@@ -103,22 +96,22 @@ const PostItem = ({ user, post, deletePost, replyPost }) => {
 /**
  * display the all posts
  * @param {Array} posts array of all posts
- * @param {boolean} loading the status of reading posts
  * @param {string} error the message of error
  * @param {object} user object which includes username and useremail
  * @param {function} deletePost the function which deletes the specified post
  * @param {function} replyPost the function which replies the post
  
  */
-const PostList = ({ posts, loading, error, user, deletePost, replyPost }) => {
+const PostList = ({ posts, error, user, deletePost, replyPost }) => {
   if (error) {
     return <PostListBlock>Error.</PostListBlock>;
   }
 
   return (
     <PostListBlock>
-      {!loading && posts && (
+      {posts && (
         <div>
+          {/* display all posts */}
           {posts.map((post) => (
             <PostItem
               post={post}

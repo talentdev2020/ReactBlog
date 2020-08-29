@@ -2,19 +2,7 @@ import { createAction, handleActions } from 'redux-actions';
 
 const INITIALIZE = 'write/INITIALIZE';
 const CHANGE_FIELD = 'write/CHANGE_FIELD';
-export const WRITE_POST = 'write/WRITE_POST';
 
-export const initialize = createAction(INITIALIZE);
-export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
-  key,
-  value,
-}));
-
-export const writePost = createAction(WRITE_POST, ({ title, body, user }) => ({
-  title,
-  user,
-  body,
-}));
 const initialState = {
   title: '',
   body: '',
@@ -22,6 +10,24 @@ const initialState = {
   user: { username: '', useremail: '' },
   postError: null,
 };
+
+export const WRITE_POST = 'write/WRITE_POST';
+
+// initialize the value
+export const initialize = createAction(INITIALIZE);
+
+// change value of the key
+export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
+  key,
+  value,
+}));
+
+// create the post
+export const writePost = createAction(WRITE_POST, ({ title, body, user }) => ({
+  title,
+  user,
+  body,
+}));
 
 const write = handleActions(
   {

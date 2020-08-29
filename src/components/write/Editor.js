@@ -8,6 +8,9 @@ import Responsive from '../common/Responsive';
 const EditorBlock = styled(Responsive)`
   padding-top: 5rem;
   padding-bottom: 5rem;
+  input::placeholder {
+    color: #dee0e2;
+  }
 `;
 const TitleInput = styled.input`
   font-size: 3rem;

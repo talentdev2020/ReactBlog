@@ -13,6 +13,7 @@ const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] = createRequestActionTypes(
   'auth/LOGIN',
 );
 
+// change the login form value
 export const changeField = createAction(
   CHANGE_FIELD,
   ({ form, key, value }) => ({
@@ -21,6 +22,8 @@ export const changeField = createAction(
     value,
   }),
 );
+
+//
 export const initializeForm = createAction(INITIALIZE_FORM, (form) => form); // register/login
 
 export const login = createAction(LOGIN, ({ username, useremail }) => ({
@@ -28,7 +31,7 @@ export const login = createAction(LOGIN, ({ username, useremail }) => ({
   useremail,
 }));
 
-//
+// check if the user is valid.
 const loginSaga = createRequestSaga(LOGIN, authAPI.login);
 export function* authSaga() {
   yield takeLatest(LOGIN, loginSaga);

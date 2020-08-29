@@ -8,8 +8,6 @@ const Ul = styled.ul`
   flex-flow: row nowrap;
   a {
     margin-right: 20px;
-    text-decoration: underline;
-    margin-bottom: 5px;
   }
   @media (max-width: 768px) {
     flex-flow: column nowrap;
@@ -43,11 +41,10 @@ const RightNav = ({ open, user, showAllPosts, logout }) => {
       <Link className="React" onClick={showAllPosts} to="/">
         <Span>Home</Span>
       </Link>
-      {user && (
-        <Link to="/write" className="Write">
-          <Span>Create</Span>
-        </Link>
-      )}
+
+      <Link to="/write" className="Write">
+        <Span>Create</Span>
+      </Link>
 
       {user ? (
         <NavButton>

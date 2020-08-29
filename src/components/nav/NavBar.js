@@ -14,13 +14,16 @@ const Nav = styled.nav`
   justify-content: space-between;
   .logo {
     padding: 15px 0;
+    display: flex;
+    font-size: 1.2rem;
   }
 `;
 const StyledInput = styled.input`
   font-size: 1rem;
   border: none;
   border: 1px solid ${palette.gray[5]};
-  padding-bottom: 0.5rem;
+  padding: 0.5rem 0;
+  border-radius: 3px;
   outline: none;
   background: url('/search.png');
   background-size: contain;
@@ -39,9 +42,10 @@ const StyledInput = styled.input`
 `;
 const WritePostButtonWrapper = styled.div`
   display: flex;
+  margin-left: 30px;
   justify-content: flex-end;
   flex-direction: column-reverse;
-  width: 35%;
+  width: 85%;
   margin-right: 50px;
 `;
 
@@ -57,18 +61,19 @@ const Navbar = ({ user, showAllPosts, logout, searchPosts }) => {
   return (
     <Nav>
       <div className="logo">
-        <strong>Blogs</strong>
+        <strong>BLOGS</strong>
+        <WritePostButtonWrapper>
+          <StyledInput
+            type="text"
+            id="search"
+            onKeyPress={(e) => {
+              if (e.key === 'Enter') Search();
+            }}
+            onChange={(e) => changeSearch(e)}
+          />
+        </WritePostButtonWrapper>
       </div>
-      <WritePostButtonWrapper>
-        <StyledInput
-          type="text"
-          id="search"
-          onKeyPress={(e) => {
-            if (e.key === 'Enter') Search();
-          }}
-          onChange={(e) => changeSearch(e)}
-        />
-      </WritePostButtonWrapper>
+
       <Burger user={user} showAllPosts={showAllPosts} logout={logout} />
     </Nav>
   );
