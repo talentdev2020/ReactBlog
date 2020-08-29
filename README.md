@@ -4,6 +4,30 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 A simple 3-pages app for post.
 
+There are 3 main pages : Login page, Home page, Create page.
+
+### Login page
+
+Users can log in with name and email.
+Now I didn't implement the form validation.
+
+### Home page
+
+Display all posts.
+
+User can see the comments for each post by clicking the "Comments" button
+
+If a user is logged in, he can reply to the post.
+
+Users issearch posts through all post fields (author name, email, post title, and post text) using keyword.
+
+If the user is the owner of the post, he/she has the ability to delete the post.
+
+### Create page
+
+If the user isn't logged in, he/she should log in first.
+Users can create a post using Quill editor.
+
 ## Live Link
 
 You can check the living site from https://reactblog-test.netlify.app/
@@ -31,33 +55,17 @@ You can check the living site from https://reactblog-test.netlify.app/
 - State management with Redux
 - Styling with styled-component
 
-## How does this work?
-
-There are 3 main pages : Login page, Home page, Create page.
-
-### Login page
-
-Users can log in with name and email.
-Now I didn't implement the form validation.
-
-### Home page
-
-Display all posts.
-User can see the comments for each post by clicking the "Comments" button
-If a user is logged in, he can reply to the post.
-Users issearch posts through all post fields (author name, email, post title, and post text) using keyword.
-If the user is the owner of the post, he/she has the ability to delete the post.
-
-### Create page
-
-If the user isn't logged in, he/she should log in first.
-Users can create a post using Quill editor.
-
 ## How to run this project
 
-- npm install or yarn  (This command will install all the required packages)
+- npm install or yarn (This command will install all the required packages)
 - npm run start or yarn start(This command will run the project, you can check the project on http://localhost:3000)
 
 ## Required Libraries
 
 redux, redux-saga, styled-components, Immer, Quill
+
+## Accessibility
+
+100%
+
+https://snipboard.io/JoiG2x.jpg
