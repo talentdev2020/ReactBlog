@@ -9,7 +9,7 @@ const Nav = styled.nav`
   border-bottom: 2px solid #f1f1f1;
   padding: 0 20px;
   display: flex;
-  max-width: 950px;
+  max-width: 1024px;
   margin: auto;
   justify-content: space-between;
   .logo {
