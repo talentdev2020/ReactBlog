@@ -1,5 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+You can check the living site from https://reactblog-test.netlify.app/
 ## How does this work?
 
 Through this project, users can login, create a new post, reply to the post and delete it.
