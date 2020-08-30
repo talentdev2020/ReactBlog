@@ -1,6 +1,5 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/5f96e288-45dc-48aa-87d5-ca8f2de6edc3/deploy-status)](https://app.netlify.com/sites/reactblog-test/deploys)
 
-
 ## Introduction
 
 A simple 3-pages app for blogging.
@@ -40,15 +39,6 @@ You can check the live site at https://reactblog-test.netlify.app/
 - Users can reply to a post
 - Users can delete a post
 - Users can search the post through all fields(title, body, username, email)
-
-## Beyond requirements
-
-- Implemented Login
-- Users don't need to input their name and email when creating a post. Username and email will be added automatically if a user is logged in.
-- Users don't need to input their name and email when replying to a post. Username and email will be added automatically if a user is logged in.
-- It can be integrated with Server API easily
-- Only the owner of the post can delete his/her post.
-- Only authenticated user can reply to a post.
 
 ## Tech stack
 
