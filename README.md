@@ -15,9 +15,9 @@ Now I didn't implement the form validation.
 
 Display all posts.
 
-User can see the comments for each post by clicking the "Comments" button
+Users can see the comments for each post by clicking the "Comments" button
 
-User can reply to a post only if he/she is authenticated.
+Users can reply to a post only if he/she is authenticated.
 
 Users can search posts through all post fields (author name, email, post title, and post text) using keyword.
 
